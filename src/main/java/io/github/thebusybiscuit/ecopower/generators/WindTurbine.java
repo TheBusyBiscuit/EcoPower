@@ -80,7 +80,7 @@ public class WindTurbine extends SlimefunItem implements EnergyNetProvider {
             }
         }
 
-        l.getWorld().spawnParticle(Particle.SPELL, l.getX() + 0.5, l.getY(), l.getZ() + 0.5, 4, 0, 0.4, 0, 0.01);
+        l.getWorld().spawnParticle(Particle.CLOUD, l.getX() + 0.5, l.getY(), l.getZ() + 0.5, 4, 0, 0.4, 0, 0.01);
         return true;
     }
 }

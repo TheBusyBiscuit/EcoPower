@@ -41,81 +41,81 @@ public class EcoPowerPlugin extends JavaPlugin implements SlimefunAddon {
 
         new Metrics(this, 8154);
 
-        ItemStack categoryItem = new CustomItemStack(SlimefunUtils.getCustomHead("240775c3ad75763613f32f04986881bbe4eee4366d0c57f17f7c7514e2d0a77d"), "&2Eco-Power Generators");
+        ItemStack categoryItem = CustomItemStack.create(SlimefunUtils.getCustomHead("240775c3ad75763613f32f04986881bbe4eee4366d0c57f17f7c7514e2d0a77d"), "&2Eco-Power Generators");
         ItemGroup itemGroup = new ItemGroup(new NamespacedKey(this, "generators"), categoryItem, 4);
 
         SlimefunItemStack rotor = new SlimefunItemStack("STEEL_ROTOR", "c51944b488e11cda65177d5911d651282b3012665e63b8929e1b6a4744b7ca8", "&bSteel Rotor");
         
         new SteelRotor(itemGroup, rotor, new ItemStack[] {
-                null, SlimefunItems.STEEL_INGOT, null,
-                SlimefunItems.STEEL_INGOT, new ItemStack(Material.IRON_BLOCK), SlimefunItems.STEEL_INGOT,
-                null, SlimefunItems.STEEL_INGOT, null
-        }, new SlimefunItemStack(rotor, 2)).register(this);
+                null, SlimefunItems.STEEL_INGOT.item(), null,
+                SlimefunItems.STEEL_INGOT.item(), new ItemStack(Material.IRON_BLOCK), SlimefunItems.STEEL_INGOT.item(),
+                null, SlimefunItems.STEEL_INGOT.item(), null
+        }, new SlimefunItemStack(rotor, 2).item()).register(this);
 
         SteamTurbine simpleTurbine = registerSteamTurbine(itemGroup, "STEAM_TURBINE", "aefd921cb61594324f3c09d7ac7d38185d2734333968f3ac38382cddf15f6d71", "&eSimple Steam Turbine", MachineTier.MEDIUM, 4, new ItemStack[] {
-                null, rotor, null,
-                SlimefunItems.STEEL_INGOT, SlimefunItems.ELECTRIC_MOTOR, SlimefunItems.STEEL_INGOT,
-                null, SlimefunItems.COPPER_WIRE, null
+                null, rotor.item(), null,
+                SlimefunItems.STEEL_INGOT.item(), SlimefunItems.ELECTRIC_MOTOR.item(), SlimefunItems.STEEL_INGOT.item(),
+                null, SlimefunItems.COPPER_WIRE.item(), null
         });
         
         SteamTurbine advancedTurbine = registerSteamTurbine(itemGroup, "STEAM_TURBINE_2", "161aad79fb748bff1e6e94d4b6a5a277cc961c1a9abfe2a4ed88baab8a2b5971", "&cAdvanced Steam Turbine", MachineTier.ADVANCED, 6, new ItemStack[] {
-                null, rotor, null,
-                SlimefunItems.BRASS_INGOT, simpleTurbine.getItem(), SlimefunItems.BRASS_INGOT,
-                SlimefunItems.BRASS_INGOT, SlimefunItems.COPPER_WIRE, SlimefunItems.BRASS_INGOT
+                null, rotor.item(), null,
+                SlimefunItems.BRASS_INGOT.item(), simpleTurbine.getItem(), SlimefunItems.BRASS_INGOT.item(),
+                SlimefunItems.BRASS_INGOT.item(), SlimefunItems.COPPER_WIRE.item(), SlimefunItems.BRASS_INGOT.item()
         });
         
         registerSteamTurbine(itemGroup, "STEAM_TURBINE_3", "b65e29a67860d82f66afe1060ec8a9ceacc8c7afe108f5d42f52ba854b0a62dc", "&4Carbonado Steam Turbine", MachineTier.END_GAME, 13, new ItemStack[] {
-                null, rotor, null,
-                SlimefunItems.CARBONADO, advancedTurbine.getItem(), SlimefunItems.CARBONADO,
-                SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.ELECTRIC_MOTOR, SlimefunItems.REINFORCED_ALLOY_INGOT
+                null, rotor.item(), null,
+                SlimefunItems.CARBONADO.item(), advancedTurbine.getItem(), SlimefunItems.CARBONADO.item(),
+                SlimefunItems.REINFORCED_ALLOY_INGOT.item(), SlimefunItems.ELECTRIC_MOTOR.item(), SlimefunItems.REINFORCED_ALLOY_INGOT.item()
         });
 
         WindTurbine simpleWindTurbine = registerWindTurbine(itemGroup, "WIND_TURBINE", "d23e4ce096e00eae6aba10d356b785c3fecc5aa3d7dad4a4a2a27ed7750df981", "&eSimple Wind Turbine", MachineTier.MEDIUM, 5, new ItemStack[] {
-                null, rotor, null,
-                SlimefunItems.STEEL_THRUSTER, SlimefunItems.ELECTRIC_MOTOR, SlimefunItems.STEEL_THRUSTER,
-                null, SlimefunItems.COPPER_WIRE, null
+                null, rotor.item(), null,
+                SlimefunItems.STEEL_THRUSTER.item(), SlimefunItems.ELECTRIC_MOTOR.item(), SlimefunItems.STEEL_THRUSTER.item(),
+                null, SlimefunItems.COPPER_WIRE.item(), null
         });
 
         WindTurbine advancedWindTurbine = registerWindTurbine(itemGroup, "WIND_TURBINE_2", "2df9e595dbeac33f43b37dd4ffbc234ea0fa7c3f98aad77dc906ce5d6783c79d", "&cAdvanced Wind Turbine", MachineTier.ADVANCED, 11, new ItemStack[] {
-                null, rotor, null,
-                SlimefunItems.ELECTRO_MAGNET, simpleWindTurbine.getItem(), SlimefunItems.ELECTRO_MAGNET,
-                SlimefunItems.ALUMINUM_BRASS_INGOT, SlimefunItems.COPPER_WIRE, SlimefunItems.ALUMINUM_BRASS_INGOT
+                null, rotor.item(), null,
+                SlimefunItems.ELECTRO_MAGNET.item(), simpleWindTurbine.getItem(), SlimefunItems.ELECTRO_MAGNET.item(),
+                SlimefunItems.ALUMINUM_BRASS_INGOT.item(), SlimefunItems.COPPER_WIRE.item(), SlimefunItems.ALUMINUM_BRASS_INGOT.item()
         });
 
         registerWindTurbine(itemGroup, "WIND_TURBINE_3", "3fcef461b43f06ef9d58c94065bbf41b77a10050520b44082d5f66f6dbe71da0", "&4Carbonado Wind Turbine", MachineTier.END_GAME, 23, new ItemStack[] {
-                SlimefunItems.FERROSILICON, rotor, SlimefunItems.FERROSILICON,
-                SlimefunItems.ELECTRIC_MOTOR, advancedWindTurbine.getItem(), SlimefunItems.ELECTRIC_MOTOR,
-                SlimefunItems.CARBONADO, SlimefunItems.FERROSILICON, SlimefunItems.CARBONADO
+                SlimefunItems.FERROSILICON.item(), rotor.item(), SlimefunItems.FERROSILICON.item(),
+                SlimefunItems.ELECTRIC_MOTOR.item(), advancedWindTurbine.getItem(), SlimefunItems.ELECTRIC_MOTOR.item(),
+                SlimefunItems.CARBONADO.item(), SlimefunItems.FERROSILICON.item(), SlimefunItems.CARBONADO.item()
         });
         
         registerLightningReceptor(itemGroup, "LIGHTNING_RECEPTOR", "&eLightning Receptor", 512, 8192, new ItemStack[] {
                 null, new ItemStack(Material.END_ROD), null,
-                SlimefunItems.BLISTERING_INGOT_3, SlimefunItems.POWER_CRYSTAL, SlimefunItems.BLISTERING_INGOT_3,
-                SlimefunItems.REINFORCED_PLATE, SlimefunItems.ENERGY_REGULATOR, SlimefunItems.REINFORCED_PLATE
+                SlimefunItems.BLISTERING_INGOT_3.item(), SlimefunItems.POWER_CRYSTAL.item(), SlimefunItems.BLISTERING_INGOT_3.item(),
+                SlimefunItems.REINFORCED_PLATE.item(), SlimefunItems.ENERGY_REGULATOR.item(), SlimefunItems.REINFORCED_PLATE.item()
         });
         
         LunarGenerator lunarGenerator = registerLunarGenerator(itemGroup, "LUNAR_GENERATOR", "&5Lunar Generator", 128, new ItemStack[] {
-                new ItemStack(Material.PHANTOM_MEMBRANE), SlimefunItems.SOLAR_GENERATOR_4, new ItemStack(Material.PHANTOM_MEMBRANE),
-                SlimefunItems.DAMASCUS_STEEL_INGOT, SlimefunItems.CARBONADO, SlimefunItems.DAMASCUS_STEEL_INGOT,
-                SlimefunItems.COPPER_WIRE, SlimefunItems.BLISTERING_INGOT_3, SlimefunItems.COPPER_WIRE
+                new ItemStack(Material.PHANTOM_MEMBRANE), SlimefunItems.SOLAR_GENERATOR_4.item(), new ItemStack(Material.PHANTOM_MEMBRANE),
+                SlimefunItems.DAMASCUS_STEEL_INGOT.item(), SlimefunItems.CARBONADO.item(), SlimefunItems.DAMASCUS_STEEL_INGOT.item(),
+                SlimefunItems.COPPER_WIRE.item(), SlimefunItems.BLISTERING_INGOT_3.item(), SlimefunItems.COPPER_WIRE.item()
         });
         
         SolarGenerator solarGenerator = registerHighEnergySolarGenerator(itemGroup, "HIGH_ENERGY_SOLAR_GENERATOR", "c4fe135c311f7086edcc5e6dbc4ef4b23f819fddaa42f827dac46e3574de2287", "&9High-Energy Solar Generator", 256, new ItemStack[] {
-                SlimefunItems.SOLAR_GENERATOR_2, lunarGenerator.getItem(), SlimefunItems.SOLAR_GENERATOR_2,
-                SlimefunItems.CARBONADO, SlimefunItems.POWER_CRYSTAL, SlimefunItems.CARBONADO,
-                SlimefunItems.BLISTERING_INGOT_3, new ItemStack(Material.NETHER_STAR), SlimefunItems.BLISTERING_INGOT_3
+                SlimefunItems.SOLAR_GENERATOR_2.item(), lunarGenerator.getItem(), SlimefunItems.SOLAR_GENERATOR_2.item(),
+                SlimefunItems.CARBONADO.item(), SlimefunItems.POWER_CRYSTAL.item(), SlimefunItems.CARBONADO.item(),
+                SlimefunItems.BLISTERING_INGOT_3.item(), new ItemStack(Material.NETHER_STAR), SlimefunItems.BLISTERING_INGOT_3.item()
         });
         
         registerSolarHelmet(itemGroup, "HIGH_ENERGY_SOLAR_HELMET", "&9High-Energy Solar Helmet", 5, new ItemStack[] {
                 null, solarGenerator.getItem(), null,
-                SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.REINFORCED_ALLOY_INGOT,
-                SlimefunItems.REINFORCED_ALLOY_INGOT, null, SlimefunItems.REINFORCED_ALLOY_INGOT
+                SlimefunItems.REINFORCED_ALLOY_INGOT.item(), SlimefunItems.REINFORCED_ALLOY_INGOT.item(), SlimefunItems.REINFORCED_ALLOY_INGOT.item(),
+                SlimefunItems.REINFORCED_ALLOY_INGOT.item(), null, SlimefunItems.REINFORCED_ALLOY_INGOT.item()
         });
         
         registerHighEnergySolarGenerator(itemGroup, "RADIANT_SOLAR_GENERATOR", "240775c3ad75763613f32f04986881bbe4eee4366d0c57f17f7c7514e2d0a77d", "&9Radiant Solar Generator", 512, new ItemStack[] {
                 lunarGenerator.getItem(), solarGenerator.getItem(), lunarGenerator.getItem(),
-                SlimefunItems.BLISTERING_INGOT_3, SlimefunItems.POWER_CRYSTAL, SlimefunItems.BLISTERING_INGOT_3,
-                SlimefunItems.REINFORCED_PLATE, SlimefunItems.CARBONADO, SlimefunItems.REINFORCED_PLATE
+                SlimefunItems.BLISTERING_INGOT_3.item(), SlimefunItems.POWER_CRYSTAL.item(), SlimefunItems.BLISTERING_INGOT_3.item(),
+                SlimefunItems.REINFORCED_PLATE.item(), SlimefunItems.CARBONADO.item(), SlimefunItems.REINFORCED_PLATE.item()
         });
     }
 

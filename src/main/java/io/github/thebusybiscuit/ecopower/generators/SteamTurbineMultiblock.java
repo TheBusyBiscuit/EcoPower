@@ -23,7 +23,7 @@ public class SteamTurbineMultiblock extends SimpleSlimefunItem<ItemUseHandler> i
     public SteamTurbineMultiblock(ItemGroup itemGroup, SlimefunItemStack item, SteamTurbine turbine) {
         super(itemGroup, item, RecipeType.MULTIBLOCK, new ItemStack[] {
                 null, turbine.getItem(), null,
-                null, new CustomItemStack(Material.WATER_BUCKET, "&fWater (Bubble Column)"), null,
+                null, CustomItemStack.create(Material.WATER_BUCKET, "&fWater (Bubble Column)"), null,
                 null, new ItemStack(Material.MAGMA_BLOCK), null
         });
     }
